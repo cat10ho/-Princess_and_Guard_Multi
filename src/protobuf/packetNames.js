@@ -6,37 +6,21 @@ export const packetNames = {
   initial: {
     InitialPacket: 'initial.InitialPacket',
   },
-  carryUpdatePayload: {
-    CarryUpdatePayload: 'carryUpdatePayload.CarryUpdatePayload',
-  },
-  createRoomPayload:{
-    CreateRoomPayload: 'createRoomPayload.CreateRoomPayload',
-  },
-  gameReadyPayload:{
-    GameReadyPayload: 'gameReadyPayload.GameReadyPayload',
-  },
-  joinLobbyPayload:{
-    JoinLobbyPayload: 'joinLobbyPayload.JoinLobbyPayload',
-  },
-  joinRoomPayload:{
-    JoinRoomPayload: 'joinRoomPayload.JoinRoomPayload',
-  },
-  locationUpdatePayload: {
-    LocationUpdatePayload : 'locationUpdatePayload.LocationUpdatePayload',
-  },
-  carryUpdate:{
-    CarryUpdate : 'carryUpdate.CarryUpdate',
-  },
-  joinLobby:{
-    JoinLobby : 'joinLobby.JoinLobby'
-  },
-  joinRoom: {
-    JoinRoom : 'joinRoom.JoinRoom',
+  game: {
+    JoinLobbyPayload: 'game.JoinLobbyPayload',
+    CreateRoomPayload: 'game.CreateRoomPayload',
+    JoinRoomPayload: 'game.JoinRoomPayload',
+    GameReadyPayload: 'game.GameReadyPayload',
+    CarryUpdatePayload: 'game.CarryUpdatePayload',
+    LocationUpdatePayload: 'game.LocationUpdatePayload',
   },
   response: {
     Response: 'response.Response',
   },
-  locationUpdate: {
-    LocationUpdate: 'locationUpdate.LocationUpdate',
+  gameNotification: {
+    JoinLobby: 'gameNotification.JoinLobby',
+    JoinRoom: 'gameNotification.JoinRoom',
+    LocationUpdate: 'gameNotification.LocationUpdate',
+    CarryUpdate: 'gameNotification.CarryUpdate',
   },
 };

@@ -20,22 +20,12 @@ const makeNotification = (message, type) => {
 
 export const createLocationPacket = (users) => {//위치정보 
   const protoMessages = getProtoMessages();
-  const Location = protoMessages.locationUpdate.LocationUpdate;
+  const Location = protoMessages.gameNotification.LocationUpdate;
 
   const payload = { users };
   const message = Location.create(payload);
   const locationPacket = Location.encode(message).finish();
   return makeNotification(locationPacket, PACKET_TYPE.LOCATION);
-};
-
-export const gameStartNotification = (gameId, timestamp) => {
-  const protoMessages = getProtoMessages();
-  const Start = protoMessages.gameNotification.Start;
-
-  const payload = { gameId, timestamp };
-  const message = Start.create(payload);
-  const startPacket = Start.encode(message).finish();
-  return makeNotification(startPacket, PACKET_TYPE.GAME_START);
 };
 
 export const createPingPacket = (timestamp) => {
@@ -46,4 +36,24 @@ export const createPingPacket = (timestamp) => {
   const message = ping.create(payload);
   const pingPacket = ping.encode(message).finish();
   return makeNotification(pingPacket, PACKET_TYPE.PING);
+};
+
+export const joinLobbyPacket = (rooms) => {//위치정보 
+  const protoMessages = getProtoMessages();
+  const JoinLobby = protoMessages.gameNotification.JoinLobby;
+
+  const payload = { rooms };
+  const message = JoinLobby.create(payload);
+  const lobbyPacket = JoinLobby.encode(message).finish();
+  return makeNotification(lobbyPacket, PACKET_TYPE.JOINLOBBY);
+};
+
+export const JoinRoomPacket = (players) => {//위치정보 
+  const protoMessages = getProtoMessages();
+  const JoinRoom = protoMessages.gameNotification.JoinRoom;
+
+  const payload = { players };
+  const message = JoinRoom.create(payload);
+  const roomPacket = JoinRoom.encode(message).finish();
+  return makeNotification(roomPacket, PACKET_TYPE.JOINROOM);
 };

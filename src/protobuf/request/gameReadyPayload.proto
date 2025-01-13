@@ -1,9 +1,0 @@
-syntax = "proto3";
-
-package GameReadyPayload;
-
-// 최초 패킷 구조
-message GameReadyPayload {
-  string deviceId = 1;
-  string role = 2;
-}

@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package gameNotification;
+
+message JoinLobby {
+  repeated RoomData rooms = 1;
+
+  message RoomData {
+    string roomName = 1;
+    uint32 maxPlayers = 2;
+    uint32 currentPlayers = 3;
+  }
+}
+
+message JoinRoom {
+  repeated RoomData players = 1;
+
+  message PlayerData {
+    string deviceId = 1;
+    string role = 2;
+  }
+}
+
+// 위치 정보 메시지 구조
+message LocationUpdate {
+  repeated UserLocation users = 1;
+
+  message UserLocation {
+    string id = 1;
+    string role = 2;
+    float x = 3;
+    float y = 4;
+  }
+}
+
+message CarryUpdate {
+  string princessId = 1;
+  bool isCarried = 2;
+  string carrierId =3;
+}

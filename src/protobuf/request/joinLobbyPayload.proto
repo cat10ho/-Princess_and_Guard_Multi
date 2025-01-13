@@ -1,8 +1,0 @@
-syntax = "proto3";
-
-package JoinLobbyPayload;
-
-// 최초 패킷 구조
-message JoinLobbyPayload {
-  string deviceId = 1;
-}

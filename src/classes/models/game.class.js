@@ -1,7 +1,6 @@
 import IntervalManager from '../managers/interval.manager.js';
 import {
   createLocationPacket,
-  gameStartNotification,
 } from '../../utils/notification/game.notification.js';
 
 const MAX_PLAYERS = 2;
@@ -38,11 +37,10 @@ class Game {
 
   startGame() {
     this.state = 'inProgress';
-    const startPacket = gameStartNotification(this.id, Date.now());
     console.log(`max latency: ${this.getMaxLatency()}`);
 
     this.users.forEach((user) => {
-      user.socket.write(startPacket);
+      //게임 시작됨을 알려주기.
     });
   }
 
