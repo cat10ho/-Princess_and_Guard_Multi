@@ -19,6 +19,7 @@ message JoinRoomPayload {
 message GameReadyPayload {
   string deviceId = 1;
   string role = 2;
+  string roomName = 3;
 }
 
 message CarryUpdatePayload {

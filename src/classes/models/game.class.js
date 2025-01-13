@@ -40,7 +40,6 @@ class Game {
     console.log(`max latency: ${this.getMaxLatency()}`);
 
     this.users.forEach((user) => {
-      //게임 시작됨을 알려주기.
     });
   }
 

@@ -6,6 +6,7 @@ class User {
     this.x = 0;
     this.y = 0;
     this.role = 'None';
+    this.isReady = false;
     this.lastUpdateTime = Date.now();
 
   }
@@ -30,6 +31,11 @@ class User {
 
   updateRole(isCarried) {
     this.isCarried = isCarried;
+    this.lastUpdateTime = Date.now();
+  }
+  
+  setReadyStatus(isReady) {
+    this.isReady = isReady; // 레디 상태 업데이트
     this.lastUpdateTime = Date.now();
   }
 
