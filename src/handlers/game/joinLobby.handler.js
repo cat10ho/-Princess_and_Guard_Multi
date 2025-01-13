@@ -14,7 +14,7 @@ const joinLobbyHandler = ({ socket, userId, payload }) => {
     if (!user) {
       throw new CustomError(ErrorCodes.USER_NOT_FOUND, '유저를 찾을 수 없습니다.');
     }
-
+    //생각해 보니까 게임 진행중이면 들어올수 없도록 추가.
     let rooms= getLobbyData();
 
     const joinLobbyResponse = joinLobbyPacket(rooms);

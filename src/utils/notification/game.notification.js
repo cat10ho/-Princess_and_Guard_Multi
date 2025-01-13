@@ -57,3 +57,13 @@ export const JoinRoomPacket = (players) => {//위치정보
   const roomPacket = JoinRoom.encode(message).finish();
   return makeNotification(roomPacket, PACKET_TYPE.JOINROOM);
 };
+
+export const gameStartNotification = (gameId, timestamp) => {
+  const protoMessages = getProtoMessages();
+  const Start = protoMessages.gameNotification.Start;
+
+  const payload = { gameId, timestamp };
+  const message = Start.create(payload);
+  const startPacket = Start.encode(message).finish();
+  return makeNotification(startPacket, PACKET_TYPE.GAME_START);
+};

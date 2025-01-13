@@ -33,6 +33,11 @@ message LocationUpdate {
   }
 }
 
+message Start {
+  string roomName = 1;
+  int64 timestamp = 2;
+}
+
 message CarryUpdate {
   string princessId = 1;
   bool isCarried = 2;

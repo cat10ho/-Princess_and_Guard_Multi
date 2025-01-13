@@ -37,9 +37,9 @@ class Game {
 
   startGame() {
     this.state = 'inProgress';
-    console.log(`max latency: ${this.getMaxLatency()}`);
-
+    const startPacket = gameStartNotification(this.id, Date.now());
     this.users.forEach((user) => {
+      user.socket.write(startPacket);
     });
   }
 

@@ -7,5 +7,6 @@ export const PACKET_TYPE = {
     JOINLOBBY: 2,
     LOCATION: 3,
     JOINROOM: 4,
-    CARRYUPDATE: 5,
+    GAME_START: 5,
+    CARRYUPDATE: 6,
   };

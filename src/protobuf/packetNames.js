@@ -22,5 +22,6 @@ export const packetNames = {
     JoinRoom: 'gameNotification.JoinRoom',
     LocationUpdate: 'gameNotification.LocationUpdate',
     CarryUpdate: 'gameNotification.CarryUpdate',
+    Start: 'gameNotification.Start',
   },
 };

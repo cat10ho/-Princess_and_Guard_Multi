@@ -28,7 +28,7 @@ message CarryUpdatePayload {
 }
 
 message LocationUpdatePayload {
-  string gameId = 1;
+  string roomName = 1;
   float x = 2;
   float y = 3;
 }

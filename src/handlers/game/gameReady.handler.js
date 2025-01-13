@@ -31,6 +31,7 @@ const gameReadyHandler = ({ socket, userId, payload }) => {
       if (role !== 'Knight') {
         throw new CustomError(ErrorCodes.INVALID_ROLE, '한 명일 때는 반드시 기사가 되어야 합니다.');
       }
+      //여기에 뭐 유저 추가하면 되지 않을까? 더미 유저.
     } else if (gameSession.users.length === 2) {
       // 2명일 때 기사와 공주가 각각 한 명씩 있어야 함
       if (knightCount > 1 || princessCount > 1) {
@@ -43,7 +44,7 @@ const gameReadyHandler = ({ socket, userId, payload }) => {
     if (allReady && gameSession.users.length === 2 && knightCount === 1 && princessCount === 1) {
       gameSession.startGame();
     };
-    
+
   } catch (error) {
     handleError(socket, error);
   }

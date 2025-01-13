@@ -6,6 +6,7 @@ import updateLocationHandler from './game/updateLocation.handler.js';
 import joinLobbyHandler from './game/joinLobby.handler.js';
 import createRoomHandler from './game/createRoom.handler.js';
 import joinRoomHandler from './game/JoinRoom.handler.js';
+import gameReadyHandler from './game/gameReady.handler.js';
 
 const handlers = {
   [HANDLER_IDS.INITIAL]: {
@@ -23,6 +24,10 @@ const handlers = {
   [HANDLER_IDS.JOIN_ROOM]: {
     handler: joinRoomHandler,
     protoType: 'game.JoinRoomPayload',
+  },
+  [HANDLER_IDS.GAME_READY]: {
+    handler: gameReadyHandler,
+    protoType: 'game.GameReadyPayload',
   },
   [HANDLER_IDS.UPDATE_LOCATION]: {
     handler: updateLocationHandler,
