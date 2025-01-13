@@ -6,8 +6,32 @@ export const packetNames = {
   initial: {
     InitialPacket: 'initial.InitialPacket',
   },
+  carryUpdatePayload: {
+    CarryUpdatePayload: 'carryUpdatePayload.CarryUpdatePayload',
+  },
+  createRoomPayload:{
+    CreateRoomPayload: 'createRoomPayload.CreateRoomPayload',
+  },
+  gameReadyPayload:{
+    GameReadyPayload: 'gameReadyPayload.GameReadyPayload',
+  },
+  joinLobbyPayload:{
+    JoinLobbyPayload: 'joinLobbyPayload.JoinLobbyPayload',
+  },
+  joinRoomPayload:{
+    JoinRoomPayload: 'joinRoomPayload.JoinRoomPayload',
+  },
   locationUpdatePayload: {
     LocationUpdatePayload : 'locationUpdatePayload.LocationUpdatePayload',
+  },
+  carryUpdate:{
+    CarryUpdate : 'carryUpdate.CarryUpdate',
+  },
+  joinLobby:{
+    JoinLobby : 'joinLobby.JoinLobby'
+  },
+  joinRoom: {
+    JoinRoom : 'joinRoom.JoinRoom',
   },
   response: {
     Response: 'response.Response',

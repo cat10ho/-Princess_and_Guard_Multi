@@ -4,7 +4,7 @@ import {
   gameStartNotification,
 } from '../../utils/notification/game.notification.js';
 
-const MAX_PLAYERS = 4;
+const MAX_PLAYERS = 2;
 
 class Game {
   constructor(id) {

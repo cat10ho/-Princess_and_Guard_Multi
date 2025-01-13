@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package JoinRoomPayload;
+
+// 최초 패킷 구조
+message JoinRoomPayload {
+  string deviceId = 1;
+  string roomName = 2;
+}

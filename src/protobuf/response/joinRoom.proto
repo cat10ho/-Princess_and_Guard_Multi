@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package JoinRoom;
+
+message JoinRoom {
+  repeated RoomData players = 1;
+
+  message PlayerData {
+    string deviceId = 1;
+    string role = 2;
+  }
+}

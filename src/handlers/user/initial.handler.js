@@ -3,7 +3,7 @@ import { HANDLER_IDS, RESPONSE_SUCCESS_CODE } from '../../constants/handlerIds.j
 import { createResponse } from '../../utils/response/createResponse.js';
 import { handleError } from '../../utils/error/errorHandler.js';
 import { v4 as uuidv4 } from 'uuid';
-import { addGameSession, getGameSession } from '../../session/game.session.js';
+import { addGameSession, getAllGameSessions, getGameSession } from '../../session/game.session.js';
 
 const gameId = 1000000;
 
@@ -11,19 +11,19 @@ const initialHandler = async ({ socket, userId, payload }) => {
   try {
     let { deviceId } = payload;
 
-    if (!deviceId) {
-      deviceId = uuidv4();
-    } 
-
     addUser(deviceId, socket); //캐릭터 아이디(종류) 도 추가해야 겠다야.
     const user = getUserById(deviceId);
 
+    let gameSessionlist = getAllGameSessions();
+
+
+
     //찾아서 없으면 만들고 있으면 그냥 가져오기.
-    let gameSession = getGameSession(gameId);
-    if(!gameSession){
-      gameSession = addGameSession(gameId);
-    }
-    gameSession.addUser(user);
+    // let gameSession = getGameSession(gameId);
+    // if(!gameSession){
+    //   gameSession = addGameSession(gameId);
+    // }
+    // gameSession.addUser(user);
 
     console.log("현재 접속중인 유저",getUser());
 
@@ -31,7 +31,7 @@ const initialHandler = async ({ socket, userId, payload }) => {
     const initialResponse = createResponse(
       HANDLER_IDS.INITIAL,
       RESPONSE_SUCCESS_CODE,
-      { userId: user.id , message: '캐릭터 생성 게임생성 게임 참가까지?? 그냥 다 하네' },
+      { },
       deviceId,
     );
 

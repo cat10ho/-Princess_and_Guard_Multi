@@ -19,7 +19,6 @@ export const packetParser = (data) => {
   const handlerId = packet.handlerId;
   const userId = packet.userId;
   const version = packet.version;
-  const sequence = packet.sequence;
 
 
 
@@ -66,5 +65,5 @@ export const packetParser = (data) => {
     );
   }
 
-  return { handlerId, userId, payload, sequence };
+  return { handlerId, userId, payload };
 };
