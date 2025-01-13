@@ -13,7 +13,7 @@ const joinRoomHandler = ({ socket, userId, payload }) => {
     const { deviceId, roomName } = payload;
     const gameSession = getGameSession(roomName);
 
-    if (gameSession.users.length >= MAX_PLAYERS) {
+    if (gameSession.users.length >= 2) {
       throw new CustomError(ErrorCodes.ROOM_FULL, '방에 더 이상 유저를 추가할 수 없습니다.');
     }
 
