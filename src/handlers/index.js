@@ -7,6 +7,8 @@ import joinLobbyHandler from './game/joinLobby.handler.js';
 import createRoomHandler from './game/createRoom.handler.js';
 import joinRoomHandler from './game/joinLobby.handler.js';
 import gameReadyHandler from './game/gameReady.handler.js';
+import changeRoleHandler from './data/changeRole.handler.js';
+import roomDataHandler from './data/roomData.handler.js';
 
 const handlers = {
   [HANDLER_IDS.INITIAL]: {
@@ -32,6 +34,14 @@ const handlers = {
   [HANDLER_IDS.UPDATE_LOCATION]: {
     handler: updateLocationHandler,
     protoType: 'locationUpdatePayload.LocationUpdatePayload',
+  },
+  [HANDLER_IDS.ROOM_DATA]: {
+    handler: roomDataHandler,
+    protoType: 'game.RoomDataPayload',
+  },
+  [HANDLER_IDS.CHANGEROLE]: {
+    handler: changeRoleHandler,
+    protoType: 'game.ChangeRolePayload',
   },
   // 다른 핸들러들을 추가
 };

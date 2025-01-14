@@ -48,11 +48,11 @@ export const joinLobbyPacket = (rooms) => {//위치정보
   return makeNotification(lobbyPacket, PACKET_TYPE.JOINLOBBY);
 };
 
-export const JoinRoomPacket = (players) => {//위치정보 
+export const JoinRoomPacket = (players, roomName) => {//위치정보 
   const protoMessages = getProtoMessages();
   const JoinRoom = protoMessages.gameNotification.JoinRoom;
 
-  const payload = { players };
+  const payload = { players, roomName };
   const message = JoinRoom.create(payload);
   const roomPacket = JoinRoom.encode(message).finish();
   return makeNotification(roomPacket, PACKET_TYPE.JOINROOM);

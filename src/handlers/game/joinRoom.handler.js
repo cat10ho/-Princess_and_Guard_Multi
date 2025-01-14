@@ -25,7 +25,8 @@ const joinRoomHandler = ({ socket, userId, payload }) => {
 
     //이러고 게임 세션에서 어. 유저 확인해야함. 유저의 
     const players = getUserData(roomName);
-    const joinRoomResponse = JoinRoomPacket(players);
+
+    const joinRoomResponse = JoinRoomPacket(players, roomName);
     socket.write(joinRoomResponse);
   } catch (error) {
     handleError(socket, error);

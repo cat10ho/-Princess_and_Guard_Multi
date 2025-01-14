@@ -8,4 +8,6 @@ export const HANDLER_IDS = {
   GAME_READY : 4,
   UPDATE_LOCATION: 5,
   CARRY_UPDATE : 6,
+  ROOM_DATA : 7,
+  CHANGEROLE : 8,
 };

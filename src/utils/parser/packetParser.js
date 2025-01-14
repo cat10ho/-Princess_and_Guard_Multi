@@ -42,6 +42,7 @@ export const packetParser = (data) => {
   try {
     payload = PayloadType.decode(packet.payload);
   } catch (error) {
+    console.log("handlerId",handlerId,"\nPayloadType",PayloadType);
     throw new CustomError(ErrorCodes.PACKET_STRUCTURE_MISMATCH, '패킷 구조가 일치하지 않습니다.');
   }
 

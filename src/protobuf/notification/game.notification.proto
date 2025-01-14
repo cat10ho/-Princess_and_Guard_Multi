@@ -13,7 +13,8 @@ message JoinLobby {
 }
 
 message JoinRoom {
-  repeated RoomData players = 1;
+  repeated PlayerData players = 1;
+  string roomName = 2;
 
   message PlayerData {
     string deviceId = 1;

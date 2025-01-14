@@ -13,6 +13,8 @@ export const packetNames = {
     GameReadyPayload: 'game.GameReadyPayload',
     CarryUpdatePayload: 'game.CarryUpdatePayload',
     LocationUpdatePayload: 'game.LocationUpdatePayload',
+    RoomDataPayload:'game.RoomDataPayload',
+    ChangeRolePayload : 'game.ChangeRolePayload',
   },
   response: {
     Response: 'response.Response',

@@ -9,15 +9,7 @@ import { ErrorCodes } from '../../utils/error/errorCodes.js';
 const gameReadyHandler = ({ socket, userId, payload }) => {
   try {
     const { deviceId, role, roomName } = payload;
-  
-    const user = getUserById(userId);
-    if (!user) {
-      throw new CustomError(ErrorCodes.USER_NOT_FOUND, '유저를 찾을 수 없습니다.');
-    }
-
-    user.updateRole(role);
-    user.setReadyStatus(true);
-
+    
     const gameSession = getGameSession(roomName);
     if (!gameSession) {
       throw new CustomError(ErrorCodes.SESSION_NOT_FOUND, '게임 세션을 찾을 수 없습니다.');

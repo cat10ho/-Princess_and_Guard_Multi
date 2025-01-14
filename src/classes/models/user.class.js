@@ -29,7 +29,7 @@ class User {
     this.lastUpdateTime = Date.now();
   }
 
-  updateRole(isCarried) {
+  updateCarried(isCarried) {
     this.isCarried = isCarried;
     this.lastUpdateTime = Date.now();
   }
