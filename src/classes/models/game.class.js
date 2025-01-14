@@ -27,16 +27,14 @@ class Game {
     return this.users.find((user) => user.id === userId);
   }
 
-  removeUser(userId) {
-    this.users = this.users.filter((user) => user.id !== userId);
-    this.intervalManager.removePlayer(userId);
-
-    if (this.users.length < MAX_PLAYERS) {
-      this.state = 'waiting';
+  removeUseruserId(userId) {
+    const index = this.users.findIndex((user) => user.id === userId);
+    if (index !== -1) {
+    this.users.splice(index, 1)[0]; // 제거된 사용자 반환
     }
   }
 
-  removeUser(socket) {
+  removeUsersocket(socket) {
     const index = this.users.findIndex((user) => user.socket === socket);
     if (index !== -1) {
     this.users.splice(index, 1)[0]; // 제거된 사용자 반환

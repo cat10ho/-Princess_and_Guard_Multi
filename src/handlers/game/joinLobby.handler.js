@@ -1,4 +1,4 @@
-import { getGameSession, getLobbyData } from '../../session/game.session.js';
+import { getGameSession, getLobbyData, removeGameSessionUserId } from '../../session/game.session.js';
 import { createResponse } from '../../utils/response/createResponse.js';
 import { handleError } from '../../utils/error/errorHandler.js';
 import { HANDLER_IDS, RESPONSE_SUCCESS_CODE } from '../../constants/handlerIds.js';
@@ -10,11 +10,14 @@ import { joinLobbyPacket } from '../../utils/notification/game.notification.js';
 const joinLobbyHandler = ({ socket, userId, payload }) => {
   try {
     const { deviceId } = payload;
+
+    removeGameSessionUserId(deviceId);
   
     const user = getUserById(userId);
     if (!user) {
       throw new CustomError(ErrorCodes.USER_NOT_FOUND, '유저를 찾을 수 없습니다.');
     }
+
     //생각해 보니까 게임 진행중이면 들어올수 없도록 추가.
     let rooms= getLobbyData();
 

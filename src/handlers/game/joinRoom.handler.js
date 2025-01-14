@@ -12,9 +12,12 @@ const joinRoomHandler = ({ socket, userId, payload }) => {
   try {
     const { deviceId, roomName } = payload;
     const gameSession = getGameSession(roomName);
-    console.log("joinRoomHandler");
     if (gameSession.users.length >= 2) {
       throw new CustomError(ErrorCodes.ROOM_FULL, '방에 더 이상 유저를 추가할 수 없습니다.');
+    }
+    
+    if(gameSession.state === 'inProgress') {
+      throw new CustomError(ErrorCodes.ROOM_FULL, '이미 게임 시작중입니다.');
     }
 
     const user = getUserById(deviceId);
