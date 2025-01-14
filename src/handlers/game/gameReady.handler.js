@@ -10,6 +10,8 @@ const gameReadyHandler = ({ socket, userId, payload }) => {
   try {
     const { deviceId, role, roomName } = payload;
     
+  const user = getUserById(deviceId);
+
     const gameSession = getGameSession(roomName);
     if (!gameSession) {
       throw new CustomError(ErrorCodes.SESSION_NOT_FOUND, '게임 세션을 찾을 수 없습니다.');
@@ -33,9 +35,17 @@ const gameReadyHandler = ({ socket, userId, payload }) => {
 
     user.setReadyStatus(true);
     const allReady = gameSession.users.every((u) => u.role !== 'None' && u.isReady);
-    if (allReady && gameSession.users.length === 2 && knightCount === 1 && princessCount === 1) {
+    if (
+      (gameSession.users.length === 2 &&
+        allReady &&
+        knightCount === 1 &&
+        princessCount === 1) ||
+      (gameSession.users.length === 1 &&
+        allReady &&
+        gameSession.users[0].role === 'Knight')
+    ) {
       gameSession.startGame();
-    };
+    }
 
   } catch (error) {
     handleError(socket, error);

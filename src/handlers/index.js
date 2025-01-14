@@ -33,7 +33,7 @@ const handlers = {
   },
   [HANDLER_IDS.UPDATE_LOCATION]: {
     handler: updateLocationHandler,
-    protoType: 'locationUpdatePayload.LocationUpdatePayload',
+    protoType: 'game.LocationUpdatePayload',
   },
   [HANDLER_IDS.ROOM_DATA]: {
     handler: roomDataHandler,

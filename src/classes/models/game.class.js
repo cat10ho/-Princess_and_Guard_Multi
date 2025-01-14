@@ -1,6 +1,7 @@
 import IntervalManager from '../managers/interval.manager.js';
 import {
   createLocationPacket,
+  gameStartNotification,
 } from '../../utils/notification/game.notification.js';
 
 const MAX_PLAYERS = 2;
@@ -44,11 +45,11 @@ class Game {
   }
 
   getAllLocation() { //이건 위치 동기화 함수임.
-    const locationData = this.users.map((user) => {
+    const users = this.users.map((user) => {
       const { x, y } = user.calculatePosition();
-      return { id: user.id, x, y };
+      return { id: user.id, role: user.role, x, y };
     });
-    return createLocationPacket(locationData);
+    return createLocationPacket(users);
   }
 }
 
