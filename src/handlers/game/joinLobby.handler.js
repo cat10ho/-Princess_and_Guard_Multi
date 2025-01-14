@@ -5,6 +5,7 @@ import { HANDLER_IDS, RESPONSE_SUCCESS_CODE } from '../../constants/handlerIds.j
 import { getUserById } from '../../session/user.session.js';
 import CustomError from '../../utils/error/customError.js';
 import { ErrorCodes } from '../../utils/error/errorCodes.js';
+import { joinLobbyPacket } from '../../utils/notification/game.notification.js';
 
 const joinLobbyHandler = ({ socket, userId, payload }) => {
   try {

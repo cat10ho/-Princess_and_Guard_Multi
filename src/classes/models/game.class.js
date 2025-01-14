@@ -36,6 +36,14 @@ class Game {
     }
   }
 
+  removeUser(socket) {
+    const index = this.users.findIndex((user) => user.socket === socket);
+    if (index !== -1) {
+    this.users.splice(index, 1)[0]; // 제거된 사용자 반환
+    }
+  }
+
+
   startGame() {
     this.state = 'inProgress';
     const users = this.users.map((user) => {
@@ -55,6 +63,9 @@ class Game {
     });
     return createLocationPacket(users);
   }
+
+ 
+
 }
 
 export default Game;

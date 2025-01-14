@@ -5,7 +5,7 @@ import { ErrorCodes } from '../utils/error/errorCodes.js';
 import updateLocationHandler from './game/updateLocation.handler.js';
 import joinLobbyHandler from './game/joinLobby.handler.js';
 import createRoomHandler from './game/createRoom.handler.js';
-import joinRoomHandler from './game/joinLobby.handler.js';
+import joinRoomHandler from './game/joinRoom.handler.js';
 import gameReadyHandler from './game/gameReady.handler.js';
 import changeRoleHandler from './data/changeRole.handler.js';
 import roomDataHandler from './data/roomData.handler.js';
