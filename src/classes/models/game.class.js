@@ -50,7 +50,7 @@ class Game {
 
   getAllLocation() { //이건 위치 동기화 함수임.
     const users = this.users.map((user) => {
-      const { x, y } = user.calculatePosition();
+      const { x, y } = user.calculateSpeed();
       return { id: user.id, role: user.role, x, y };
     });
     return createLocationPacket(users);

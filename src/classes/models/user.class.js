@@ -3,8 +3,10 @@ class User {
   constructor(id, socket) {
     this.id = id;
     this.socket = socket;
-    this.x = 0;
+    this.x = 0; //이제 이게 '위치'
     this.y = 0;
+    this.xSpeed =0; 
+    this.ySpeed =0;
     this.role = 'None';
     this.isReady = false;
     this.lastUpdateTime = Date.now();
@@ -12,8 +14,8 @@ class User {
   }
 
   updatePosition(x, y) {
-    this.x = x;
-    this.y = y;
+    this.xSpeed = x;
+    this.ySpeed = y;
     this.lastUpdateTime = Date.now();
   }
 
@@ -21,6 +23,12 @@ class User {
     return {
       x: this.x,
       y: this.y,
+    };
+  }
+  calculateSpeed() {
+    return {
+      x: this.xSpeed,
+      y: this.ySpeed,
     };
   }
 
