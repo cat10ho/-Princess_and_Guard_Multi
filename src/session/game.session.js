@@ -16,6 +16,8 @@ export const removeGameSession = (id) => {
 
 export const removeGameSessionUser = (socket) => {
   const index = gameSessions.findIndex((session) => session.id === id);
+
+  
   if (index !== -1) {
     return gameSessions.splice(index, 1)[0];
   }
