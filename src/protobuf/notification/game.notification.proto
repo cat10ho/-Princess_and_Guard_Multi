@@ -35,8 +35,16 @@ message LocationUpdate {
 }
 
 message Start {
-  string roomName = 1;
-  int64 timestamp = 2;
+  repeated UserStartLocation users = 1;
+  string roomName = 2;
+  int64 timestamp = 3;
+
+  message UserStartLocation {
+    string id = 1;
+    string role = 2;
+    float x = 3;
+    float y = 4;
+  }
 }
 
 message CarryUpdate {

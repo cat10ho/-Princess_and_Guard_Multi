@@ -38,7 +38,11 @@ class Game {
 
   startGame() {
     this.state = 'inProgress';
-    const startPacket = gameStartNotification(this.id, Date.now());
+    const users = this.users.map((user) => {
+      const { x, y } = user.calculatePosition();
+      return { id: user.id, role: user.role, x, y };
+    });
+    const startPacket = gameStartNotification(users ,this.id, Date.now());
     this.users.forEach((user) => {
       user.socket.write(startPacket);
     });
