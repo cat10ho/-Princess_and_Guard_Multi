@@ -9,6 +9,7 @@ import joinRoomHandler from './game/joinRoom.handler.js';
 import gameReadyHandler from './game/gameReady.handler.js';
 import changeRoleHandler from './data/changeRole.handler.js';
 import roomDataHandler from './data/roomData.handler.js';
+import carryUpdateHandler from './game/carryUpdate.handler.js';
 
 const handlers = {
   [HANDLER_IDS.INITIAL]: {
@@ -42,6 +43,10 @@ const handlers = {
   [HANDLER_IDS.CHANGEROLE]: {
     handler: changeRoleHandler,
     protoType: 'game.ChangeRolePayload',
+  },
+  [HANDLER_IDS.CARRY_UPDATE]: {
+    handler: carryUpdateHandler,
+    protoType: 'game.CarryUpdatePayload',
   },
   // 다른 핸들러들을 추가
 };

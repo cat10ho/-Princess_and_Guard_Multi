@@ -59,7 +59,10 @@ class Game {
       const { x, y } = user.calculateSpeed();
       return { id: user.id, role: user.role, x, y };
     });
-    return createLocationPacket(users);
+    const packet = createLocationPacket(users);
+    this.users.forEach((user) => {
+      user.socket.write(packet);
+    });
   }
 
  

@@ -67,3 +67,13 @@ export const gameStartNotification = (users , gameId, timestamp) => {
   const startPacket = Start.encode(message).finish();
   return makeNotification(startPacket, PACKET_TYPE.GAME_START);
 };
+
+export const CarryUpdatePacket = (princessId , isCarried, carrierId) => {
+  const protoMessages = getProtoMessages();
+  const carryUpdate = protoMessages.gameNotification.CarryUpdate;
+
+  const payload = {princessId , isCarried, carrierId };
+  const message = carryUpdate.create(payload);
+  const carryUpdatePacket = carryUpdate.encode(message).finish();
+  return makeNotification(carryUpdatePacket, PACKET_TYPE.CARRYUPDATE);
+};

@@ -10,7 +10,7 @@ class User {
     this.role = 'None';
     this.isReady = false;
     this.lastUpdateTime = Date.now();
-
+    this.isCarried = false;
   }
 
   updatePosition(x, y) {

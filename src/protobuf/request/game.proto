@@ -29,8 +29,9 @@ message GameReadyPayload {
 }
 
 message CarryUpdatePayload {
-  string princessId = 1;
-  bool isCarried = 2;
+  string knightId = 1;
+  string princessId = 2;
+  bool isCarried = 3;
 }
 
 message LocationUpdatePayload {
