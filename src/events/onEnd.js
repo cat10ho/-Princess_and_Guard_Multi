@@ -1,4 +1,4 @@
-import { removeGameSessionSocket } from '../session/game.session.js';
+import { removeGameSessionSocket, removeVacantGameSession } from '../session/game.session.js';
 import { getUser, removeUser } from '../session/user.session.js';
 
 export const onEnd = (socket) => () => {
@@ -6,5 +6,6 @@ export const onEnd = (socket) => () => {
   
   removeGameSessionSocket(socket);
   removeUser(socket);
+  removeVacantGameSession();
   console.log("현재 접속중인 유저",getUser());
 };

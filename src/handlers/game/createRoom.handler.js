@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
-import { addGameSession, getUserData } from '../../session/game.session.js';
+import { addGameSession, getUserData, isGameIdDuplicate } from '../../session/game.session.js';
 import { createResponse } from '../../utils/response/createResponse.js';
 import { handleError } from '../../utils/error/errorHandler.js';
 import { HANDLER_IDS, RESPONSE_SUCCESS_CODE } from '../../constants/handlerIds.js';
@@ -11,8 +11,17 @@ import { JoinRoomPacket } from '../../utils/notification/game.notification.js';
 const createRoomHandler = ({ socket, userId, payload }) => {
   try {
     const { deviceId, roomName } = payload;
-    const gameSession = addGameSession(roomName);
+    
 
+    if (!roomName || roomName === ""|| roomName === "None" ) {
+      throw new CustomError(ErrorCodes.NONE_ROOM_NAME, '방 이름이 없음.');
+    }
+
+    if(isGameIdDuplicate(roomName)){
+      throw new CustomError(ErrorCodes.ROOM_NAME_DUPLICATE, '방 이름이 중복됨.');
+    }
+
+    const gameSession = addGameSession(roomName);
     const user = getUserById(deviceId);
     if (!user) {
       throw new CustomError(ErrorCodes.USER_NOT_FOUND, '유저를 찾을 수 없습니다.');

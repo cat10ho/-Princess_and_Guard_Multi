@@ -10,5 +10,7 @@ export const ErrorCodes = {
   INVALID_SEQUENCE: 10008,
   GAME_NOT_FOUND: 10009,
   ROOM_FULL: 10010,
+  ROOM_NAME_DUPLICATE: 10011,
+  NONE_ROOM_NAME:10012,
   // 추가적인 에러 코드들
 };

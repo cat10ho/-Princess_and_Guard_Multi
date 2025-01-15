@@ -74,5 +74,18 @@ export const removeGameSessionUserId = (userId) => {
   }
 }
 
+ // 필터링해서 조건에 맞는 게임 세션만 남깁니다.
+export const removeVacantGameSession = () => {
+  for (let i = gameSessions.length - 1; i >= 0; i--) {
+    const game = gameSessions[i];
+    if (game.users.length === 0 && game.state === 'inProgress') {
+      gameSessions.splice(i, 1); // 조건에 맞는 게임 세션 제거
+    }
+  }
+};
 
+//게임 이름 같은거 있는지 확인 있으면 ture, 없으면 false  
+export const isGameIdDuplicate = (id) => {
+  return gameSessions.some((game) => game.id === id);
+};
 
